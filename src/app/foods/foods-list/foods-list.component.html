@@ -1,0 +1,15 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row pad-left-right">
+      <span class="pull-left title">Restaurants</span>
+      <a [routerLink]="['new']" class="btn btn-success pull-right">Add Restaurants</a>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="center-panel">
+      <app-foods-item
+      *ngFor="let food of foods"
+      [food]="food"></app-foods-item>
+    </div>
+  </div>
+</div>

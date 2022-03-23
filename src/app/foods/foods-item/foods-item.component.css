@@ -1,0 +1,15 @@
+.documentDiv {
+  min-width: 10rem;
+  min-height: 11rem;
+  margin: 2px;
+  font-size: 1.3rem;
+  border: solid thin darkgrey;
+  float: left;
+  padding: .25rem
+}
+
+img{
+  margin:auto;
+  min-width: 9rem;
+  min-height: 9rem;
+}

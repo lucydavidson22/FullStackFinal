@@ -1,0 +1,79 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form id="food-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="name">Restaurant Name:</label>
+          <input
+            type="text"
+            id="name"
+            class="form-control"
+            size="120"
+            max="120"
+            name="name"
+            [ngModel]=food?.name
+            required
+            #name="ngModel">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="imageUrl">Restaurant Image URL:</label>
+          <input
+            type="text"
+            id="imageUrl"
+            class="form-control"
+            size="120"
+            max="255"
+            name="imageUrl"
+            required
+            [ngModel]=food?.imageUrl
+            #imageUrl = "ngModel">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="favoriteItems">Favorite Items:</label>
+          <textarea
+            type="text"
+            id="favoriteItems"
+            class="form-control"
+            name="favoriteItems"
+            [ngModel]=food?.favoriteItems
+            #favoriteItems="ngModel"></textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="menuUrl">Menu URL:</label>
+          <input
+            type="text"
+            id="menuUrl"
+            class="form-control"
+            size="150"
+            max="255"
+            name="menuUrl"
+            [ngModel]=food?.menuUrl
+            #menuUrl="ngModel">
+        </div>
+      </div>
+
+
+      <div class="alert alert-danger" *ngIf="!f.valid && f.touched">
+        The Restaurant Name and Restaurant URL are required fields.
+      </div>
+      <div class="row">
+        <div class="col-xs-12 btn-toolbar">
+          <button class="btn btn-success" type="submit" [disabled]="!f.valid">Save</button>
+          <button class="btn btn-primary" type="button" (click)="onCancel()">Cancel</button>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
