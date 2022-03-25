@@ -1,0 +1,15 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row pad-left-right">
+      <span class="pull-left title">Homemade</span>
+      <a [routerLink]="['new']" class="btn btn-success pull-right">Add Meal</a>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="center-panel">
+      <app-homemade-item
+      *ngFor="let homemade of homemades"
+      [homemade]="homemade"></app-homemade-item>
+    </div>
+  </div>
+</div>

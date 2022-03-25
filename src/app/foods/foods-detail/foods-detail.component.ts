@@ -42,7 +42,6 @@ export class FoodsDetailComponent implements OnInit {
 
   onDelete(){
     this.foodService.deleteFood(this.food);
-    // this.router.navigate(['documents'], {relativeTo: this.route});
     this.router.navigate(['foods']);
   }
 

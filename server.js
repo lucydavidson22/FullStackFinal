@@ -13,6 +13,8 @@ let logger = require('morgan');
 // import the routing file to handle the default (index) route
 let index = require('./server/routes/app');
 const foodsRoutes = require('./server/routes/foods');
+const sitInsRoutes = require('./server/routes/sitIns');
+const homemadeRoutes = require('./server/routes/homemades');
 
 
 let app = express(); // create an instance of express
@@ -47,6 +49,8 @@ app.use(express.static(path.join(__dirname, 'dist/food')));
 // Tell express to map the default route ('/') to the index route
 app.use('/', index);
 app.use('/foods', foodsRoutes);
+app.use('/sitIns', sitInsRoutes);
+app.use('/homemades', homemadeRoutes);
 
 //For 404
 app.use((req, res, next) => {

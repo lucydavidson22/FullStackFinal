@@ -17,6 +17,11 @@ import { SitInsItemComponent } from './sit-in/sit-ins-item/sit-ins-item.componen
 import { SitInsDetailComponent } from './sit-in/sit-ins-detail/sit-ins-detail.component';
 import { SitInEditComponent } from './sit-in/sit-in-edit/sit-in-edit.component';
 import { SitInListComponent } from './sit-in/sit-ins-list/sit-ins-list.component';
+import { HomemadeComponent } from './homemade/homemades.component';
+import { HomemadeListComponent } from './homemade/homemade-list/homemade-list.component';
+import { HomemadeItemComponent } from './homemade/homemade-item/homemade-item.component';
+import { HomemadeEditComponent } from './homemade/homemade-edit/homemade-edit.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -31,9 +36,14 @@ import { SitInListComponent } from './sit-in/sit-ins-list/sit-ins-list.component
     SitInListComponent,
     SitInsItemComponent,
     SitInsDetailComponent,
-    SitInEditComponent
+    SitInEditComponent,
+    HomemadeComponent,
+    HomemadeListComponent,
+    HomemadeItemComponent,
+    HomemadeEditComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

@@ -1,1 +1,15 @@
-<p>sit-in-list works!</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row pad-left-right">
+      <span class="pull-left title">Restaurants</span>
+      <a [routerLink]="['new']" class="btn btn-success pull-right">Add Restaurants</a>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="center-panel">
+      <app-sit-ins-item
+      *ngFor="let sitIn of sitIns"
+      [sitIn]="sitIn"></app-sit-ins-item>
+    </div>
+  </div>
+</div>

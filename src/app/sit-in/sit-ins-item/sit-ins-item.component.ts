@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { SitIn } from '../sit-in.model';
 
 @Component({
   selector: 'app-sit-ins-item',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sit-ins-item.component.css']
 })
 export class SitInsItemComponent implements OnInit {
+  @Input() sitIn: SitIn;
 
   constructor() { }
 

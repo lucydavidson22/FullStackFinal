@@ -11,7 +11,7 @@
             size="120"
             max="120"
             name="name"
-            [ngModel]=sitIn?.name
+            [ngModel]=homemade?.name
             required
             #name="ngModel">
         </div>
@@ -28,42 +28,27 @@
             max="255"
             name="imageUrl"
             required
-            [ngModel]=sitIn?.imageUrl
+            [ngModel]=homemade?.imageUrl
             #imageUrl = "ngModel">
         </div>
       </div>
 
       <div class="row">
         <div class="col-sm-12 form-group">
-          <label for="favoriteItems">Favorite Items:</label>
+          <label for="sides">Sides:</label>
           <textarea
             type="text"
-            id="favoriteItems"
+            id="sides"
             class="form-control"
-            name="favoriteItems"
-            [ngModel]=sitIn?.favoriteItems
-            #favoriteItems="ngModel"></textarea>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-12 form-group">
-          <label for="menuUrl">Menu URL:</label>
-          <input
-            type="text"
-            id="menuUrl"
-            class="form-control"
-            size="150"
-            max="255"
-            name="menuUrl"
-            [ngModel]=sitIn?.menuUrl
-            #menuUrl="ngModel">
+            name="sides"
+            [ngModel]=homemade?.sides
+            #sides="ngModel"></textarea>
         </div>
       </div>
 
 
       <div class="alert alert-danger" *ngIf="!f.valid && f.touched">
-        The Restaurant Name and Restaurant URL are required fields.
+        The Meal Name and Image URL are required fields.
       </div>
       <div class="row">
         <div class="col-xs-12 btn-toolbar">

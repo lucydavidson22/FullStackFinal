@@ -1,6 +1,7 @@
 var Sequence = require('../models/sequence');
 
 var maxFoodId;
+var maxSitInId;
 var sequenceId = null;
 
 function SequenceGenerator() {
@@ -13,6 +14,8 @@ function SequenceGenerator() {
 
       sequenceId = sequence._id;
       maxFoodId = sequence.maxFoodId;
+      maxSitInId = sequence.maxSitInId;
+      maxHomemadeId = sequence.maxHomemadeId;
     });
 }
 
@@ -23,12 +26,23 @@ SequenceGenerator.prototype.nextId = function(collectionType) {
 
   switch (collectionType) {
     case 'foods':
-      maxFoodId++;
-      updateObject = {maxFoodId: maxFoodId};
-      console.log('get the maxId');
-      nextId = maxFoodId;
-      break;
-      // return -1;
+        maxFoodId++;
+        updateObject = {maxFoodId: maxFoodId};
+        console.log('get the maxId');
+        nextId = maxFoodId;
+        break;
+      case 'sitIns':
+        maxSitInId++;
+        updateObject = {maxSitInId: maxSitInId};
+        nextId = maxSitInId;
+        break;
+      case 'homemades':
+        maxHomemadeId++;
+        updateObject = {maxHomemadeId: maxHomemadeId};
+        nextId = maxHomemadeId;
+        break;
+      default:
+        return -1;
   }
 
   // Sequence.update({_id: sequenceId}, {$set: updateObject},

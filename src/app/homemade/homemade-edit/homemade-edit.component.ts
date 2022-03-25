@@ -1,25 +1,24 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import {  } from 'express';
 import { Subscription } from 'rxjs';
-import { SitIn } from '../sit-in.model';
-import { SitInService } from '../sit-in.service';
+import { Homemade } from '../homemade.model';
+import { HomemadeService } from '../homemade.service';
 
 @Component({
-  selector: 'app-sit-in-edit',
-  templateUrl: './sit-in-edit.component.html',
-  styleUrls: ['./sit-in-edit.component.css']
+  selector: 'app-homemade-edit',
+  templateUrl: './homemade-edit.component.html',
+  styleUrls: ['./homemade-edit.component.css']
 })
-export class SitInEditComponent implements OnInit {
-  // @ViewChild('f') sitInForm: NgForm;
+export class HomemadeEditComponent implements OnInit {
+  @ViewChild('f') homemadeForm: NgForm;
   subscription: Subscription;
-  originalSitIn: SitIn;
-  sitIn:SitIn
+  originalHomemade: Homemade;
+  homemade:Homemade
   editMode: boolean = false;
   id: string;
 
-  constructor(private sitInService: SitInService,
+  constructor(private homemadeService: HomemadeService,
               private router: Router,
               private route: ActivatedRoute) { }
 
@@ -31,35 +30,34 @@ export class SitInEditComponent implements OnInit {
           this.editMode = false;
           return;
         }
-        this.originalSitIn = this.sitInService.getSitIn(this.id);
-        if(!this.originalSitIn){
+        this.originalHomemade = this.homemadeService.getHomemadeMeal(this.id);
+        if(!this.originalHomemade){
           return;
         }
         this.editMode = true;
-        this.sitIn = JSON.parse(JSON.stringify(this.originalSitIn));
+        this.homemade = JSON.parse(JSON.stringify(this.originalHomemade));
       })
   }
 
   onCancel(){
-    this.router.navigate(['/sitIns']);
+    this.router.navigate(['/homemades']);
   }
 
   onSubmit(form: NgForm){
     const value = form.value;
-    const newSitIn = new SitIn(
+    const newHomemade = new Homemade(
       '0',
       value.name,
       value.imageUrl,
-      value.favoriteItems,
-      value.menuUrl
+      value.sides
     );
 
     if(this.editMode){
-      this.sitInService.updateSitIn(this.originalSitIn, newSitIn)
+      this.homemadeService.updateHomemadeMeal(this.originalHomemade, newHomemade)
     } else{
-      this.sitInService.addSitIn(newSitIn)
+      this.homemadeService.addHomemadeMeal(newHomemade)
     }
-    this.router.navigate(['sitIns']);
+    this.router.navigate(['homemades']);
   }
 
   ngOnDestroy(): void {
