@@ -34,11 +34,6 @@ export class HomemadeDetailComponent implements OnInit {
     this.router.navigate(['edit'], {relativeTo: this.route});
   }
 
-  // onView(){
-  //   if(this.homemade.menuUrl){
-  //     this.nativeWindow.open(this.homemade.menuUrl);
-  //   }
-  // }
 
   onDelete(){
     this.homemadeService.deleteHomemadeMeal(this.homemade);

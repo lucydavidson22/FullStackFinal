@@ -22,3 +22,8 @@
   word-break:break-all;
   white-space:normal;
 }
+
+.panel-center{
+  width: 75%;
+  margin: 0 auto;
+}

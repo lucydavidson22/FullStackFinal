@@ -14,7 +14,7 @@ export class HomemadeEditComponent implements OnInit {
   @ViewChild('f') homemadeForm: NgForm;
   subscription: Subscription;
   originalHomemade: Homemade;
-  homemade:Homemade
+  homemade:Homemade;
   editMode: boolean = false;
   id: string;
 
