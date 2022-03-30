@@ -128,4 +128,9 @@ export class HomemadeService {
       );
   }
 
+  getRandomDinnerIdea(id:string){
+    let dinnerIdea = this.homemades[Math.floor(Math.random() * this.homemades.length)];
+    return dinnerIdea;
+  }
+
 }

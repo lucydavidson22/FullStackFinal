@@ -11,6 +11,7 @@ import { HomemadeService } from '../homemade.service';
 export class HomemadeListComponent implements OnInit {
   homemades: Homemade[] = [];
   private subscription: Subscription;
+  id:string;
 
   constructor(private homemadeService: HomemadeService,
               ) { }
@@ -29,6 +30,10 @@ export class HomemadeListComponent implements OnInit {
 
   ngOnDestroy(): void {
       this.subscription.unsubscribe();
+  }
+
+  selectRandom(){
+    this.homemadeService.getRandomDinnerIdea(this.id);
   }
 
 

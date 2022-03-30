@@ -16,14 +16,7 @@
 
 
 .label-value{
-  /* height:60px; */
   overflow:hidden;
-  /* width:350px; */
   word-break:break-all;
   white-space:normal;
-}
-
-.panel-center{
-  width: 75%;
-  margin: 0 auto;
 }

@@ -11,6 +11,7 @@ import { SitInService } from '../sit-in.service';
 export class SitInListComponent implements OnInit {
   sitIns: SitIn[] = [];
   private subscription: Subscription;
+  id:string;
 
   constructor(private sitInService: SitInService,
               ) { }
@@ -31,5 +32,8 @@ export class SitInListComponent implements OnInit {
       this.subscription.unsubscribe();
   }
 
+  selectRandom(){
+    this.sitInService.getRandomDinnerIdea(this.id);
+  }
 
 }

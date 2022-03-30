@@ -123,9 +123,13 @@ export class SitInService {
         () => {
           this.sitIns.splice(pos, 1);
           this.sitInListChangedEvent.next(this.sitIns.slice());
-          // this.sortAndSend();
         }
       );
+  }
+
+  getRandomDinnerIdea(id:string){
+    let dinnerIdea = this.sitIns[Math.floor(Math.random() * this.sitIns.length)];
+    return dinnerIdea;
   }
 
 }

@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<!-- <div class="panel panel-default">
   <div class="panel-heading">
     <div class="row pad-left-right">
       <span class="pull-left title">Restaurants</span>
@@ -12,4 +12,18 @@
       [sitIn]="sitIn"></app-sit-ins-item>
     </div>
   </div>
-</div>
+</div> -->
+
+
+<table>
+  <tr>
+    <th><h1>Restaurants</h1></th>
+  </tr>
+  <tr>
+    <th><a [routerLink]="['new']" class="btn btn-color ">Add Restaurant</a>
+      <a [routerLink]="[':id/random']" (click)="selectRandom()" class="btn btn-color pull-left">Random Restaurant</a></th>
+  </tr>
+</table>
+<app-sit-ins-item
+      *ngFor="let sitIn of sitIns"
+      [sitIn]="sitIn"></app-sit-ins-item>

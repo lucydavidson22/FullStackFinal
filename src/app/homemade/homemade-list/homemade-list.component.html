@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<!-- <div class="panel panel-default">
   <div class="panel-heading">
     <div class="row pad-left-right">
       <span class="pull-left title">Homemade</span>
@@ -12,4 +12,17 @@
       [homemade]="homemade"></app-homemade-item>
     </div>
   </div>
-</div>
+</div> -->
+
+<table>
+  <tr>
+    <th><h1>Homemade</h1></th>
+  </tr>
+  <tr>
+    <th><a [routerLink]="['new']" class="btn btn-color ">Add Homemade</a>
+      <a [routerLink]="[':id/random']" (click)="selectRandom()" class="btn btn-color pull-left">Random Homemade</a></th>
+  </tr>
+</table>
+<app-homemade-item
+      *ngFor="let homemade of homemades"
+      [homemade]="homemade"></app-homemade-item>

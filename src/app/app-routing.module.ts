@@ -9,8 +9,9 @@ import { SitInsDetailComponent } from "./sit-in/sit-ins-detail/sit-ins-detail.co
 import { HomemadeComponent } from "./homemade/homemades.component";
 import { HomemadeEditComponent } from "./homemade/homemade-edit/homemade-edit.component";
 import { HomemadeDetailComponent } from "./homemade/homemade-detail/homemade-detail.component";
-import { HomemadeItemComponent } from "./homemade/homemade-item/homemade-item.component";
 import { FoodsRandomDetailComponent } from "./foods/foods-random-detail/foods-random-detail.component";
+import { HomemadeRandomDetailComponent } from "./homemade/homemade-random-detail/homemade-random-detail.component";
+import { SitInsRandomDetailComponent } from "./sit-in/sit-ins-random-detail/sit-ins-random-detail.component";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/foods', pathMatch: 'full'},
@@ -23,12 +24,14 @@ const appRoutes: Routes = [
   {path: 'sitIns', component: SitInsComponent, children: [
     {path: 'new', component: SitInEditComponent},
     {path: ':id', component: SitInsDetailComponent},
-    {path: ':id/edit', component: SitInEditComponent}
+    {path: ':id/edit', component: SitInEditComponent},
+    {path: ':id/random', component: SitInsRandomDetailComponent}
   ]},
   {path: 'homemades', component: HomemadeComponent, children: [
     {path: 'new', component: HomemadeEditComponent},
     {path: ':id', component: HomemadeDetailComponent},
-    {path: ':id/edit', component: HomemadeEditComponent}
+    {path: ':id/edit', component: HomemadeEditComponent},
+    {path: ':id/random', component: HomemadeRandomDetailComponent}
   ]}
 ];
 
