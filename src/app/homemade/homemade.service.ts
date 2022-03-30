@@ -67,7 +67,6 @@ export class HomemadeService {
     if (!homemade) {
       return;
     }
-    console.log("Add another homemade");
 
     homemade.id = '';
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
@@ -78,11 +77,8 @@ export class HomemadeService {
       { headers: headers })
       .subscribe(
         (responseData) => {
-          // add new homemade to homemades
-          console.log('Push new data');
           this.homemades.push(responseData.homemade);
           this.homemadeListChangedEvent.next(this.homemades.slice());
-          // this.sortAndSend();
         }
       );
 

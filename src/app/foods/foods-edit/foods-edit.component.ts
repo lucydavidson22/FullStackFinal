@@ -49,7 +49,10 @@ export class FoodsEditComponent implements OnInit {
       '0',
       value.name,
       value.imageUrl,
-      value.favoriteItems,
+      value.mainCourse,
+      value.sides,
+      value.drinks,
+      value.desserts,
       value.menuUrl
     );
 

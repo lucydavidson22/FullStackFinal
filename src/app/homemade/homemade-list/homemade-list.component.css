@@ -13,3 +13,8 @@
   padding-left:1rem;
   padding-right:1rem;
 }
+
+.btn-color{
+  background-color: rgb(100, 180, 255) !important;
+  color: white;
+}

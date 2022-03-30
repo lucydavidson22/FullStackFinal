@@ -3,7 +3,10 @@ export class Foods{
     public id: string,
     public name: string,
     public imageUrl:string,
-    public favoriteItems:string,
+    public mainCourse:string,
+    public sides:string,
+    public drinks:string,
+    public desserts:string,
     public menuUrl:string
   ){}
 }

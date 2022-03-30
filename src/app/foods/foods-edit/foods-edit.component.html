@@ -35,14 +35,53 @@
 
       <div class="row">
         <div class="col-sm-12 form-group">
-          <label for="favoriteItems">Favorite Items:</label>
+          <label for="mainCourse">Main Course:</label>
           <textarea
             type="text"
-            id="favoriteItems"
+            id="mainCourse"
             class="form-control"
-            name="favoriteItems"
-            [ngModel]=food?.favoriteItems
-            #favoriteItems="ngModel"></textarea>
+            name="mainCourse"
+            [ngModel]=food?.mainCourse
+            #mainCourse="ngModel"></textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="sides">Sides:</label>
+          <textarea
+            type="text"
+            id="sides"
+            class="form-control"
+            name="sides"
+            [ngModel]=food?.sides
+            #sides="ngModel"></textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="drinks">Drinks:</label>
+          <textarea
+            type="text"
+            id="drinks"
+            class="form-control"
+            name="drinks"
+            [ngModel]=food?.drinks
+            #drinks="ngModel"></textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="desserts">Desserts:</label>
+          <textarea
+            type="text"
+            id="desserts"
+            class="form-control"
+            name="desserts"
+            [ngModel]=food?.desserts
+            #desserts="ngModel"></textarea>
         </div>
       </div>
 

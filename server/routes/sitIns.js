@@ -18,7 +18,6 @@ router.get("/", (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  console.log('sitIns posted?');
   const maxSitInId = sequenceGenerator.nextId("sitIns");
 
   const sitIn = new SitIn({

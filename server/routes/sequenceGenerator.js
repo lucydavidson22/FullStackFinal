@@ -28,7 +28,6 @@ SequenceGenerator.prototype.nextId = function(collectionType) {
     case 'foods':
         maxFoodId++;
         updateObject = {maxFoodId: maxFoodId};
-        console.log('get the maxId');
         nextId = maxFoodId;
         break;
       case 'sitIns':
@@ -45,7 +44,6 @@ SequenceGenerator.prototype.nextId = function(collectionType) {
         return -1;
   }
 
-  // Sequence.update({_id: sequenceId}, {$set: updateObject},
   Sequence.update({_id: sequenceId}, {$set: updateObject},
     function(err) {
       if (err) {

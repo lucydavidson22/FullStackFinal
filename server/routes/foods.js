@@ -18,14 +18,16 @@ router.get("/", (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  console.log('foods posted?');
   const maxFoodId = sequenceGenerator.nextId("foods");
 
   const food = new Food({
     id: maxFoodId,
     name: req.body.name,
     imageUrl: req.body.imageUrl,
-    favoriteItems: req.body.favoriteItems,
+    mainCourse: req.body.mainCourse,
+    sides: req.body.sides,
+    drinks: req.body.drinks,
+    desserts: req.body.desserts,
     menuUrl: req.body.menuUrl
   });
 
@@ -49,7 +51,10 @@ router.put('/:id', (req, res, next) => {
     .then(food => {
       food.name = req.body.name;
       food.imageUrl = req.body.imageUrl;
-      food.favoriteItems = req.body.favoriteItems;
+      food.mainCourse = req.body.mainCourse;
+      food.sides = req.body.sides;
+      food.drinks = req.body.drinks;
+      food.desserts = req.body.desserts;
       food.menuUrl = req.body.menuUrl;
 
       Food.updateOne({ id: req.params.id }, food)

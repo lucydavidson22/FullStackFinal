@@ -25,7 +25,6 @@ export class FoodsService {
     return this.http
      .get<Foods[]>('http://localhost:3000/foods')
      .subscribe(
-       //success method
        (foods:Foods[]) => {
          this.foods = foods;
          this.maxFoodsId = this.getMaxId();
@@ -37,7 +36,6 @@ export class FoodsService {
             let foodsListClone = this.foods.slice();
             this.foodsListChangedEvent.next(foodsListClone);
        }
-       //error method
        ,(error: any)=> {
          console.log(error.message)
        }
@@ -67,22 +65,17 @@ export class FoodsService {
     if (!food) {
       return;
     }
-    console.log("Add another food");
 
     food.id = '';
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
 
-    // add to database
     this.http.post<{ message: string, food: Foods }>('http://localhost:3000/foods',
       food,
       { headers: headers })
       .subscribe(
         (responseData) => {
-          // add new food to foods
-          console.log('Push new data');
           this.foods.push(responseData.food);
           this.foodsListChangedEvent.next(this.foods.slice());
-          // this.sortAndSend();
         }
       );
 
@@ -96,18 +89,15 @@ export class FoodsService {
     if (pos < 0) {
       return;
     }
-    // set the id of the new Food to the id of the old Food
     newFood.id = originalFood.id;
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
 
-    // update database
     this.http.put('http://localhost:3000/foods/' + originalFood.id,
       newFood, { headers: headers })
       .subscribe(
         () => {
           this.foods[pos] = newFood;
           this.foodsListChangedEvent.next(this.foods.slice());
-          // this.sortAndSend();
         }
       );
 
@@ -122,16 +112,18 @@ export class FoodsService {
     if (pos < 0) {
       return;
     }
-
-    // delete from database
     this.http.delete('http://localhost:3000/foods/' + food.id)
       .subscribe(
         () => {
           this.foods.splice(pos, 1);
           this.foodsListChangedEvent.next(this.foods.slice());
-          // this.sortAndSend();
         }
       );
+  }
+
+  getRandomDinnerIdea(id:string){
+    let dinnerIdea = this.foods[Math.floor(Math.random() * this.foods.length)];
+    return dinnerIdea;
   }
 
 }

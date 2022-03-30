@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Foods } from '../food.model';
 import { FoodsService } from '../food.service';
@@ -11,8 +12,11 @@ import { FoodsService } from '../food.service';
 export class FoodsListComponent implements OnInit {
   foods: Foods[];
   private subscription: Subscription;
+  id: string;
 
-  constructor(private foodService: FoodsService) { }
+  constructor(private foodService: FoodsService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.foodService.foodChangedEvent.subscribe(
@@ -28,6 +32,10 @@ export class FoodsListComponent implements OnInit {
 
   ngOnDestroy(): void {
       this.subscription.unsubscribe();
+  }
+
+  selectRandom(){
+    this.foodService.getRandomDinnerIdea(this.id);
   }
 
 }

@@ -1,15 +1,10 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <div class="row pad-left-right">
-      <span class="pull-left title">Fast Food Restaurants</span>
-      <a [routerLink]="['new']" class="btn btn-success pull-right">Add Fast Food</a>
-    </div>
-  </div>
-  <div class="panel-body">
-    <div class="center-panel">
-      <app-foods-item
-      *ngFor="let food of foods"
-      [food]="food"></app-foods-item>
-    </div>
-  </div>
-</div>
+<table>
+  <tr>
+    <th><h1>Fast Food Resturants</h1></th>
+  </tr>
+  <tr>
+    <th><a [routerLink]="['new']" class="btn btn-color ">Add Fast Food</a>
+      <a [routerLink]="[':id/random']" (click)="selectRandom()" class="btn btn-color pull-left">Random Fast Food</a></th>
+  </tr>
+</table>
+<app-foods-item *ngFor="let food of foods" [food]="food"></app-foods-item>

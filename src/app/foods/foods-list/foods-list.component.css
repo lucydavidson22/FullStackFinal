@@ -13,3 +13,26 @@
   padding-left:1rem;
   padding-right:1rem;
 }
+
+.btn{
+  margin-right: 5px;
+}
+
+
+@media screen and (max-width: 500px) {
+  .panel,
+  .center-panel,
+  .panel-body {
+      width: 70%;
+  }
+}
+
+.btn-color{
+  background-color: rgb(100, 180, 255) !important;
+  color: white;
+}
+
+table{
+  width: 700px;
+}
+

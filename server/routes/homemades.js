@@ -18,7 +18,6 @@ router.get("/", (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  console.log('homemades posted?');
   const maxHomemadeId = sequenceGenerator.nextId("homemades");
 
   const homemade = new Homemade({

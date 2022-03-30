@@ -67,7 +67,6 @@ export class SitInService {
     if (!sitIn) {
       return;
     }
-    console.log("Add another sitIn");
 
     sitIn.id = '';
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
@@ -78,11 +77,8 @@ export class SitInService {
       { headers: headers })
       .subscribe(
         (responseData) => {
-          // add new sitIn to sitIns
-          console.log('Push new data');
           this.sitIns.push(responseData.sitIn);
           this.sitInListChangedEvent.next(this.sitIns.slice());
-          // this.sortAndSend();
         }
       );
 

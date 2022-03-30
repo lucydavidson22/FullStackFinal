@@ -22,6 +22,8 @@ import { HomemadeListComponent } from './homemade/homemade-list/homemade-list.co
 import { HomemadeItemComponent } from './homemade/homemade-item/homemade-item.component';
 import { HomemadeEditComponent } from './homemade/homemade-edit/homemade-edit.component';
 import { CommonModule } from '@angular/common';
+import { FoodsRandomDetailComponent } from './foods/foods-random-detail/foods-random-detail.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { CommonModule } from '@angular/common';
     HomemadeComponent,
     HomemadeListComponent,
     HomemadeItemComponent,
-    HomemadeEditComponent
+    HomemadeEditComponent,
+    FoodsRandomDetailComponent
   ],
   imports: [
     CommonModule,
@@ -48,7 +51,8 @@ import { CommonModule } from '@angular/common';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

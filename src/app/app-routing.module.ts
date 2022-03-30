@@ -10,13 +10,15 @@ import { HomemadeComponent } from "./homemade/homemades.component";
 import { HomemadeEditComponent } from "./homemade/homemade-edit/homemade-edit.component";
 import { HomemadeDetailComponent } from "./homemade/homemade-detail/homemade-detail.component";
 import { HomemadeItemComponent } from "./homemade/homemade-item/homemade-item.component";
+import { FoodsRandomDetailComponent } from "./foods/foods-random-detail/foods-random-detail.component";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/foods', pathMatch: 'full'},
   {path: 'foods', component: FoodsComponent, children: [
     {path: 'new', component: FoodsEditComponent},
     {path: ':id', component: FoodsDetailComponent},
-    {path: ':id/edit', component: FoodsEditComponent}
+    {path: ':id/edit', component: FoodsEditComponent},
+    {path: ':id/random', component: FoodsRandomDetailComponent}
   ]},
   {path: 'sitIns', component: SitInsComponent, children: [
     {path: 'new', component: SitInEditComponent},

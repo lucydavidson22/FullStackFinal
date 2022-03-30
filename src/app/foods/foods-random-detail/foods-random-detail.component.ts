@@ -6,10 +6,10 @@ import { FoodsService } from '../food.service';
 
 @Component({
   selector: 'app-foods-edit',
-  templateUrl: './foods-detail.component.html',
-  styleUrls: ['./foods-detail.component.css']
+  templateUrl: './foods-random-detail.component.html',
+  styleUrls: ['./foods-random-detail.component.css']
 })
-export class FoodsDetailComponent implements OnInit {
+export class FoodsRandomDetailComponent implements OnInit {
   food: Foods;
   id: string;
   nativeWindow: any;
@@ -22,11 +22,12 @@ export class FoodsDetailComponent implements OnInit {
               }
 
   ngOnInit(): void {
+    // this.router.navigate(['foods']);
     this.route.params.subscribe(
       (params: Params) => {
-        this.id = params['id'];
-        this.food = this.foodService.getFood(this.id)
-        // this.food = this.foodService.getRandomDinnerIdea(this.id);
+        this.id = params[':id/random'];
+        this.food = this.foodService.getRandomDinnerIdea(this.id);
+
       }
     )
   }
