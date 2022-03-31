@@ -3,6 +3,7 @@
   height: 11rem; */
   min-width: 10rem;
   min-height: 11rem;
+  max-width: 20rem;
   margin: 2px;
   font-size: 1.3rem;
   border: solid thin darkgrey;
