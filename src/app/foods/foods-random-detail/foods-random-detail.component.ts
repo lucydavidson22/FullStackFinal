@@ -22,7 +22,6 @@ export class FoodsRandomDetailComponent implements OnInit {
               }
 
   ngOnInit(): void {
-    // this.router.navigate(['foods']);
     this.route.params.subscribe(
       (params: Params) => {
         this.id = params[':id/random'];

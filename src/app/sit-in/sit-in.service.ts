@@ -25,7 +25,6 @@ export class SitInService {
     return this.http
      .get<SitIn[]>('http://localhost:3000/sitIns')
      .subscribe(
-       //success method
        (sitIns:SitIn[]) => {
          this.sitIns = sitIns;
          this.maxSitInId = this.getMaxId();
@@ -37,7 +36,6 @@ export class SitInService {
             let sitInsListClone = this.sitIns.slice();
             this.sitInListChangedEvent.next(sitInsListClone);
        }
-       //error method
        ,(error: any)=> {
          console.log(error.message)
        }
@@ -64,14 +62,9 @@ export class SitInService {
   }
 
   addSitIn(sitIn: SitIn) {
-    if (!sitIn) {
-      return;
-    }
-
+    if (!sitIn) { return; }
     sitIn.id = '';
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
-
-    // add to database
     this.http.post<{ message: string, sitIn: SitIn }>('http://localhost:3000/sitIns',
       sitIn,
       { headers: headers })
@@ -85,17 +78,11 @@ export class SitInService {
   }
 
   updateSitIn(originalSitIn: SitIn, newSitIn: SitIn) {
-    if (!originalSitIn || !newSitIn) {
-      return;
-    }
+    if (!originalSitIn || !newSitIn) { return; }
     const pos = this.sitIns.findIndex(d => d.id === originalSitIn.id);
-    if (pos < 0) {
-      return;
-    }
+    if (pos < 0) { return; }
     newSitIn.id = originalSitIn.id;
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
-
-    // update database
     this.http.put('http://localhost:3000/sitIns/' + originalSitIn.id,
       newSitIn, { headers: headers })
       .subscribe(
@@ -108,16 +95,9 @@ export class SitInService {
   }
 
   deleteSitIn(sitIn: SitIn) {
-    if (!sitIn) {
-      return;
-    }
-
+    if (!sitIn) { return; }
     const pos = this.sitIns.findIndex(d => d.id === sitIn.id);
-    if (pos < 0) {
-      return;
-    }
-
-    // delete from database
+    if (pos < 0) { return; }
     this.http.delete('http://localhost:3000/sitIns/' + sitIn.id)
       .subscribe(
         () => {

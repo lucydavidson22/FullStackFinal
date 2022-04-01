@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import {  } from 'express';
@@ -12,7 +12,6 @@ import { SitInService } from '../sit-in.service';
   styleUrls: ['./sit-in-edit.component.css']
 })
 export class SitInEditComponent implements OnInit {
-  // @ViewChild('f') sitInForm: NgForm;
   subscription: Subscription;
   originalSitIn: SitIn;
   sitIn:SitIn

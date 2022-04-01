@@ -26,7 +26,6 @@ export class FoodsDetailComponent implements OnInit {
       (params: Params) => {
         this.id = params['id'];
         this.food = this.foodService.getFood(this.id)
-        // this.food = this.foodService.getRandomDinnerIdea(this.id);
       }
     )
   }

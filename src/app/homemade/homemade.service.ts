@@ -25,19 +25,12 @@ export class HomemadeService {
     return this.http
      .get<Homemade[]>('http://localhost:3000/homemades')
      .subscribe(
-       //success method
        (homemades:Homemade[]) => {
          this.homemades = homemades;
          this.maxHomemadeId = this.getMaxId();
-        //  homemades.sort((a, b) => {
-        //    if(a.name > b.name){ return 1; }
-        //    if(a.name < b.name){ return -1; }
-        //    else { return 0; }
-        //   });
             let homemadesListClone = this.homemades.slice();
             this.homemadeListChangedEvent.next(homemadesListClone);
        }
-       //error method
        ,(error: any)=> {
          console.log(error.message)
        }
@@ -67,11 +60,8 @@ export class HomemadeService {
     if (!homemade) {
       return;
     }
-
     homemade.id = '';
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
-
-    // add to database
     this.http.post<{ message: string, homemade: Homemade }>('http://localhost:3000/homemades',
       homemade,
       { headers: headers })
@@ -81,7 +71,6 @@ export class HomemadeService {
           this.homemadeListChangedEvent.next(this.homemades.slice());
         }
       );
-
   }
 
   updateHomemadeMeal(originalHomemade: Homemade, newHomemade: Homemade) {
@@ -95,7 +84,6 @@ export class HomemadeService {
     newHomemade.id = originalHomemade.id;
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
 
-    // update database
     this.http.put('http://localhost:3000/homemades/' + originalHomemade.id,
     newHomemade, { headers: headers })
       .subscribe(
@@ -104,26 +92,21 @@ export class HomemadeService {
           this.homemadeListChangedEvent.next(this.homemades.slice());
         }
       );
-
   }
 
   deleteHomemadeMeal(homemade: Homemade) {
     if (!homemade) {
       return;
     }
-
     const pos = this.homemades.findIndex(d => d.id === homemade.id);
     if (pos < 0) {
       return;
     }
-
-    // delete from database
     this.http.delete('http://localhost:3000/homemades/' + homemade.id)
       .subscribe(
         () => {
           this.homemades.splice(pos, 1);
           this.homemadeListChangedEvent.next(this.homemades.slice());
-          // this.sortAndSend();
         }
       );
   }

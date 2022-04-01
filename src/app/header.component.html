@@ -1,10 +1,13 @@
 <nav class="navbar">
   <div class="container-fluid">
       <div class="navbar-header">
-          <a class="navbar-brand">Dinner Plans?</a>
+        <button type="button" class="navbar-toggle" (click)="collapsed = !collapsed">
+          <span class="icon-bar" *ngFor="let iconBar of [1, 2, 3]"></span>
+        </button>
+          <a href="#" class="nav-logo"><img src="../../assets/images/letseatlogo.png" alt="logo" class="logo"></a>
       </div>
 
-      <div class="collapse navbar-collapse">
+      <div class="collapse navbar-collapse"[class.collapse]="collapsed" (window:resize)="collapsed = true">
           <ul class="nav navbar-nav">
               <li routerLinkActive="active"><a [routerLink]="['/foods']">Fast Food</a></li>
               <li routerLinkActive="active"><a [routerLink]="['/sitIns']">Sit In Restaurants</a></li>
